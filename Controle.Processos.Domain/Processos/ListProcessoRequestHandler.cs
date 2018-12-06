@@ -8,16 +8,16 @@ namespace Controle.Processos.Domain.Processos
 {
     public class ListProcessoRequestHandler: IListProcessoRequestHandler
     {
-        private IProcessoRepository _processoRepository;
+        private IListProcessos _listProcessos;
 
-        public ListProcessoRequestHandler(IProcessoRepository processoRepository)
+        public ListProcessoRequestHandler(IListProcessos listProcessos)
         {
-            _processoRepository = processoRepository;
+            _listProcessos = listProcessos;
         }
 
         public Task<IList<Processo>> Handle(IListProcessoRequest request, CancellationToken cancellationToken)
         {
-            return Task.FromResult(_processoRepository.GetAll());
+            return Task.FromResult(_listProcessos.GetAll());
         }
     }
 }

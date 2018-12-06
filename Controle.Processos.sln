@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controle.Processos.Persiste
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controle.Processos.Infrastructure", "Controle.Processos.Infrastructure\Controle.Processos.Infrastructure.csproj", "{BF5C83B1-50D1-41CF-A381-284F9CBD161C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controle.Processos.API", "Controle.Processos.API\Controle.Processos.API.csproj", "{235D37F3-7F38-4BC8-8016-C34E9E65FCAB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{BF5C83B1-50D1-41CF-A381-284F9CBD161C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF5C83B1-50D1-41CF-A381-284F9CBD161C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF5C83B1-50D1-41CF-A381-284F9CBD161C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{235D37F3-7F38-4BC8-8016-C34E9E65FCAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{235D37F3-7F38-4BC8-8016-C34E9E65FCAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{235D37F3-7F38-4BC8-8016-C34E9E65FCAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{235D37F3-7F38-4BC8-8016-C34E9E65FCAB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
