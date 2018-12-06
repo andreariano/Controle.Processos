@@ -6,16 +6,16 @@ using Controle.Processos.Domain.Persistence;
 
 namespace Controle.Processos.Domain.Processos
 {
-    public class ListProcessoRequestHandler: IListProcessoRequestHandler
+    public class ListProcessoQueryHandler: IListProcessoQueryHandler
     {
-        private IListProcessos _listProcessos;
+        private readonly IListProcessos _listProcessos;
 
-        public ListProcessoRequestHandler(IListProcessos listProcessos)
+        public ListProcessoQueryHandler(IListProcessos listProcessos)
         {
             _listProcessos = listProcessos;
         }
 
-        public Task<IList<Processo>> Handle(IListProcessoRequest request, CancellationToken cancellationToken)
+        public Task<IList<Processo>> Handle(ListProcessoQuery request, CancellationToken cancellationToken)
         {
             return Task.FromResult(_listProcessos.GetAll());
         }

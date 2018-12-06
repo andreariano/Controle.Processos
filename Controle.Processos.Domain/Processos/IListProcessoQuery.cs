@@ -1,11 +1,10 @@
 using System.Collections.Generic;
 using Controle.Processos.Domain.Model;
-using MediatR;
+using Controle.Processos.Domain.Queries;
 
 namespace Controle.Processos.Domain.Processos
 {
-    public interface IListProcessoRequest: IRequest<IList<Processo>>
+    public interface IListProcessoQuery : IQuery<IList<Processo>>
     {
-        
     }
 }

@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Controle.Processos.DI.Bus;
 using Controle.Processos.Domain.Model;
 using Controle.Processos.Domain.Processos;
+using Controle.Processos.Domain.Queries;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Controle.Processos.API.Controllers
@@ -11,20 +11,20 @@ namespace Controle.Processos.API.Controllers
     [ApiController]
     public class ProcessosController : ControllerBase
     {
-        private readonly IBus _bus;
-        private readonly IListProcessoRequest _listProcessoRequest;
+        private readonly IQueryDispatcher _queryDispatcher;
+        private readonly IListProcessoQuery _listProcessoQuery;
 
-        public ProcessosController(IBus bus, IListProcessoRequest listProcessoRequest)
+        public ProcessosController(IListProcessoQuery listProcessoQuery, IQueryDispatcher queryDispatcher)
         {
-            _bus = bus;
-            _listProcessoRequest = listProcessoRequest;
+            _queryDispatcher = queryDispatcher;
+            _listProcessoQuery = listProcessoQuery;
         }
 
         // GET api/values
         [HttpGet]
         public async Task<ActionResult<IList<Processo>>> Get()
         {
-            return Ok(await _bus.Send(_listProcessoRequest));
+            return Ok(await _queryDispatcher.SendQuery(_listProcessoQuery));
         }
 
 //        // GET api/values/5
