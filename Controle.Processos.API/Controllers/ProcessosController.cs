@@ -22,7 +22,7 @@ namespace Controle.Processos.API.Controllers
 
         // GET api/values
         [HttpGet]
-        public async Task<ActionResult<IList<Processo>>> Get()
+        public async Task<ActionResult<IList<Processo>>> GetAll()
         {
             return Ok(await _queryDispatcher.SendQuery(_listProcessoQuery));
         }
