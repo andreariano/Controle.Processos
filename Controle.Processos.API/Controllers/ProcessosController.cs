@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 using Controle.Processos.Domain.Model;
 using Controle.Processos.Domain.Processos;
-using Controle.Processos.Domain.Queries;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Controle.Processos.API.Controllers
@@ -11,29 +10,30 @@ namespace Controle.Processos.API.Controllers
     [ApiController]
     public class ProcessosController : ControllerBase
     {
-        private readonly IQueryDispatcher _queryDispatcher;
         private readonly IListProcessoQuery _listProcessoQuery;
 
-        public ProcessosController(IListProcessoQuery listProcessoQuery, IQueryDispatcher queryDispatcher)
+        public ProcessosController(IListProcessoQuery listProcessoQuery)
         {
-            _queryDispatcher = queryDispatcher;
             _listProcessoQuery = listProcessoQuery;
         }
 
-        // GET api/values
         [HttpGet]
         public async Task<ActionResult<IList<Processo>>> GetAll()
         {
-            return Ok(await _queryDispatcher.SendQuery(_listProcessoQuery));
+            return Ok(await 
+                _listProcessoQuery
+                .Run());
         }
 
-//        // GET api/values/5
-//        [HttpGet("{id}")]
-//        public ActionResult<string> Get(int id)
-//        {
-//            return "value";
-//        }
-//
+        [HttpGet("{id}")]
+        public async Task<ActionResult<IList<Processo>>> Get(int id)
+        {
+            return Ok(await 
+                _listProcessoQuery
+                .WithNumeroProcesso(id)
+                .Run());
+        }
+
 //        // POST api/values
 //        [HttpPost]
 //        public void Post([FromBody] string value)

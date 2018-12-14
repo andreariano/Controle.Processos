@@ -1,10 +1,12 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Controle.Processos.Domain.Model;
-using Controle.Processos.Domain.Queries;
 
 namespace Controle.Processos.Domain.Processos
 {
-    public interface IListProcessoQuery : IQuery<IList<Processo>>
+    public interface IListProcessoQuery
     {
+        IListProcessoQuery WithNumeroProcesso(int numeroProcesso);
+        Task<IList<Processo>> Run();
     }
 }
